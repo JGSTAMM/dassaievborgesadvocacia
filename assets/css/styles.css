@@ -592,8 +592,9 @@ body.arc-backdrop {
 
 .floating-google-badge {
   position: absolute;
-  top: 22px;
-  left: -22px;
+  top: 24px;
+  right: -20px;
+  left: auto;
   z-index: 4;
   background: rgba(24, 26, 34, 0.94);
   backdrop-filter: blur(10px);
@@ -974,12 +975,24 @@ body.arc-backdrop {
   border: 1px solid var(--bronze-border);
   background: var(--bg-obsidian);
   box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
 }
 
 .about-photo-sub img {
   width: 100%;
-  height: 230px;
+  height: auto;
   object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.about-photo-cert img {
+  aspect-ratio: 4 / 3;
+}
+
+.about-photo-portrait img {
+  aspect-ratio: 4 / 4.9;
 }
 
 .about-photo-sub figcaption {
@@ -2007,7 +2020,16 @@ textarea.form-control {
   }
 
   .about-photo-sub img {
-    height: 180px;
+    height: auto;
+  }
+
+  .about-photo-cert img {
+    aspect-ratio: 16 / 11;
+  }
+
+  .about-photo-portrait img {
+    aspect-ratio: 4 / 4.9;
+    object-position: center top;
   }
 
   .credentials-box {
