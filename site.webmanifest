@@ -1,0 +1,21 @@
+{
+  "name": "Dassaiev Borges Advocacia — OAB/RS 108.403",
+  "short_name": "DB Advocacia",
+  "description": "Inventários, Direito Imobiliário, Contratos, Família, Trabalhista, Direito Médico e Acidentes de Trânsito em Torres/RS e Online.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#1E2029",
+  "theme_color": "#C98A4B",
+  "icons": [
+    {
+      "src": "assets/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "assets/img/logo-circle.png",
+      "sizes": "166x166",
+      "type": "image/png"
+    }
+  ]
+}

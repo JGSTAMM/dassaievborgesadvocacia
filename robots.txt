@@ -1,0 +1,35 @@
+# robots.txt — Dassaiev Borges Advocacia (SEO & GEO AI Optimization)
+# Desenvolvido por Pixirica Tecnologias
+
+User-agent: *
+Allow: /
+
+# Motores de Busca e Inteligência Artificial Generativa (GEO / AEO)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://dassaievborgesadvocacia.com.br/sitemap.xml
