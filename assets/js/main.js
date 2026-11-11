@@ -89,4 +89,60 @@
   document.querySelectorAll('[data-current-year]').forEach(function (el) {
     el.textContent = String(new Date().getFullYear());
   });
+
+  // 4. Efeitos 3D Interativos: Parallax com Luz Especular (Desktop) & Ambiente Tátil (Mobile)
+  (function init3DEffects() {
+    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 768);
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) return;
+
+    if (isTouchDevice) {
+      document.body.classList.add('is-mobile-3d');
+      return;
+    }
+
+    const tiltElements = document.querySelectorAll(
+      '.area-card, .pillar-box, .review-card, .triage-form, .about-photo-sub, .bio-card-header, .bio-link-btn'
+    );
+
+    tiltElements.forEach(function (card) {
+      let ticking = false;
+
+      card.addEventListener('mousemove', function (e) {
+        if (!ticking) {
+          window.requestAnimationFrame(function () {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            // Inclinação 3D proporcional suave (-6deg a +6deg)
+            const rotateX = ((centerY - y) / centerY) * 6;
+            const rotateY = ((x - centerX) / centerX) * 6;
+
+            // Ponto de luz especular radial (0% a 100%)
+            const spotX = (x / rect.width) * 100;
+            const spotY = (y / rect.height) * 100;
+
+            card.style.setProperty('--rot-x', rotateX.toFixed(2) + 'deg');
+            card.style.setProperty('--rot-y', rotateY.toFixed(2) + 'deg');
+            card.style.setProperty('--spot-x', spotX.toFixed(1) + '%');
+            card.style.setProperty('--spot-y', spotY.toFixed(1) + '%');
+
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+      card.addEventListener('mouseleave', function () {
+        card.style.setProperty('--rot-x', '0deg');
+        card.style.setProperty('--rot-y', '0deg');
+        card.style.setProperty('--spot-x', '50%');
+        card.style.setProperty('--spot-y', '50%');
+      });
+    });
+  })();
 })();
